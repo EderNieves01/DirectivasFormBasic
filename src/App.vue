@@ -1,14 +1,17 @@
-<!-- Directiva de html: v-html que podemos agregar contenido html
-desde nuestro script -->
+<!-- Directiva de show: v-show que podemos ocultar y ver elementos -->
 
 <template>
   <div>
     <h1>Directivas</h1>
     <hr>
+<h3>Tu edad es: {{ edad }}</h3>
 
-    <!-- me crea un h3 con su contenido creado en en script 
-    pero nos deja vulnerables ataques xss, podemos crear script y pasarlos aqui-->
-<div v-html="html"></div>
+<!-- nos permite crear una condicional que si se cumple muestre
+o desaparece el elemento-->
+<h2 v-show="edad >= 18"> Eres mayor de edad</h2>
+<h2 v-show="edad < 18"> Eres menor de edad</h2>
+
+<button @click="add()">add</button>
   </div>
 
 </template>
@@ -17,8 +20,13 @@ desde nuestro script -->
 
 export default {
   data: () => ({
-    html: "<h3> Hola a todos</h3>"
-  })
+    edad: 17,
+  }),
+  methods: {
+    add(){
+    this.edad++;
+  }
+  }
 }
 </script>
 
