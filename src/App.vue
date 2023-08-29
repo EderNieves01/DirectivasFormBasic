@@ -1,47 +1,33 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
+<!-- Directiva de texto: v-text -->
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div>
+    <h1>Directivas</h1>
+    <hr>
+<!-- se agrega directamente a la etiqueta -->
+<!-- <span v-text="title"></span> -->
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+<!-- y podemos agregarlo afuera, es mas recomendable por si queremos 
+combinar texto -->
+<span >Eder {{ title }}</span>
+  </div>
 
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
+<script>
+
+export default {
+  data: () => ({
+    title: "Hola desde vue"
+  })
+}
+</script>
+
+
 <style scoped>
-header {
-  line-height: 1.5;
-}
+div{
+  text-align: center;
+  margin: 0px 2rem ;
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
 }
 </style>
