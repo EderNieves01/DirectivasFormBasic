@@ -1,19 +1,11 @@
-<!-- Directiva de for: v-for recorriendo array y objetos -->
+<!-- Directiva de eventos click: v-on:click o forma abreviada @click -->
 
 <template>
   <div>
     <h1>Directivas</h1>
     <hr>
-<ul>
-  <!-- lo implementemos en el li para crear una lista con cada elemento de mi array
-  pasandole dos parametos acciendo referencia de como se llamara nuestra
-  variable cada elemento del array in en nombre del array, tambien podemos pasar el indice 
-  con el index por coma -->
-  <!-- en el caso de que fuera un objeto se coloca la valor y la clave -->
-  <li v-for=" (usuarios, index) in usuarios " :key="index" >
-               {{index}} - {{ usuarios }} 
-  </li>
-</ul>
+
+    <div @click="clicks" class="contador"> {{ Clicks }} </div>
 
   </div>
 
@@ -24,18 +16,12 @@
 export default {
   //aqui van las variables de objeto que podemos inyectar a nuestro html
   data: () => ({
-    edad: 17,
-    usuarios: [
-      "Eder", "Brayan", "Ray", "Kleirin"
-    ]
+    Clicks: 0
   }),
   //aqui los methods
   methods: {
-    add(){
-    this.edad++;
-  },
-  dis() {
-    this.edad--;
+    clicks(){
+    this.Clicks++;
   }
   }
 }
@@ -46,6 +32,13 @@ export default {
 div{
   text-align: center;
   margin: 0px 2rem ;
+
+}
+.contador{
+  background: tomato;
+  color: snow;
+  font-weight: bold;
+  height: 200px;
 
 }
 </style>
