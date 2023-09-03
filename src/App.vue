@@ -1,21 +1,20 @@
-<!-- Directiva de show: v-if and v-else condicionales -->
+<!-- Directiva de for: v-for recorriendo array y objetos -->
 
 <template>
   <div>
     <h1>Directivas</h1>
     <hr>
-<h3>Tu edad es: {{ edad }}</h3>
+<ul>
+  <!-- lo implementemos en el li para crear una lista con cada elemento de mi array
+  pasandole dos parametos acciendo referencia de como se llamara nuestra
+  variable cada elemento del array in en nombre del array, tambien podemos pasar el indice 
+  con el index por coma -->
+  <!-- en el caso de que fuera un objeto se coloca la valor y la clave -->
+  <li v-for=" (usuarios, index) in usuarios " :key="index" >
+               {{index}} - {{ usuarios }} 
+  </li>
+</ul>
 
-<!-- nos permite crear una condicional que si se cumple muestre
-o desaparece el elemento casi igual que el v-show pero tendremos mas control
- sobre los elementos, aqui le tenemos un limited a la edad y no puede
-ser menor a cero ya que nadie tiene esa edad ni mayor que 100-->
-<h2 v-if="edad >= 18 && edad > 0 && edad <100"> Eres mayor de edad</h2>
-<h2 v-else-if="edad < 18 && edad > 0 && edad <100"> Eres menor de edad</h2>
-<h2 v-else>Edad invalida</h2>
-
-<button @click="add()">Add</button>
-<button @click="dis()">Dis</button>
   </div>
 
 </template>
@@ -23,9 +22,14 @@ ser menor a cero ya que nadie tiene esa edad ni mayor que 100-->
 <script>
 
 export default {
+  //aqui van las variables de objeto que podemos inyectar a nuestro html
   data: () => ({
     edad: 17,
+    usuarios: [
+      "Eder", "Brayan", "Ray", "Kleirin"
+    ]
   }),
+  //aqui los methods
   methods: {
     add(){
     this.edad++;
