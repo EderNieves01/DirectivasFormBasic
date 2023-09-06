@@ -1,11 +1,12 @@
-<!-- Directiva de eventos click: v-on:click o forma abreviada @click -->
+<!-- Directiva de eventos propiedades: v-bind:propiedad o forma abreviada :propiedad -->
 
 <template>
   <div>
     <h1>Directivas</h1>
     <hr>
-
-    <div @click="clicks" class="contador"> {{ Clicks }} </div>
+    <!-- mandamos de forma dinamica la url desde el script con
+    v-bind:src o abreviado :src -->
+    <img :src="url" alt="">
 
   </div>
 
@@ -16,15 +17,10 @@
 export default {
   //aqui van las variables de objeto que podemos inyectar a nuestro html
   data: () => ({
-    Clicks: 0
-  }),
-  //aqui los methods
-  methods: {
-    clicks(){
-    this.Clicks++;
-  }
-  }
+    url: "https://cdn.svgporn.com/logos/vue.svg?response-content-disposition=attachment%3Bfilename%3Dvue.svg"
+  })
 }
+
 </script>
 
 
